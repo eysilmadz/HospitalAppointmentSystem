@@ -5,42 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HospitalAppointmentSystem</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HospitalAppointmentSystem.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HospitalAppointmentSystem</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <div class="area">
+        <header class="header_section">
+            <div class="header_top">
+                <div class="container">
+                    <div class="contact_nav">
+                        <span>
+                            <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+                            <span>
+                                0212 000 000
+                            </span>
+                        </span>
+
+                        <span>
+                            <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                            <span>
+                                Email : info@gmail.com
+                            </span>
+                        </span>
+
+                        <span>
+                            <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                            <span>
+                                Konum
+                            </span>
+                        </span>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </header>
     </div>
+        
+    <!--nav-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom_nav-container container-fluid">
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+            <img src="~/images/logo.png" alt="Logo" width="34" height="34" class="d-inline-block align-text-top">
+            EsMerv Hastanesi
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Privacy">Duyurular</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hakkımızda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">İletişim</a>
+                </li>
+            </ul>
+            <button class="btn btn-outline-success" type="submit">RANDEVU AL</button>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - HospitalAppointmentSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="dropdown">
+                <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="~/images/language.png" width="24px" height="24px" />
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">English</a></li>
+                    <li><a class="dropdown-item" href="#">Türkçe</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    @RenderBody()
+   
+
+    <footer class="bg-dark py-5 mt-5">
+        <div class="container text-light text-center">
+            <p class=" mb-3">EsMerv Hastanesi Randevu Alma Noktası</p>
+            <small class="text-white-50">&copy; Tüm Hakları Saklıdır</small>
         </div>
     </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

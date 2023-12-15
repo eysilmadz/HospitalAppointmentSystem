@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -13,6 +13,137 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+body{
+    color:#45474B;
+    background-color:#ffffff;
+    overflow-x:hidden;
+}
+
+.area{
+    position:relative;
+    height:auto;
+}
+
+.header_section .header_top{
+    padding:15px 0;
+}
+
+.header_section{
+    margin-top:0;
+}
+
+.header_section .header_top .contact_nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+ .header_section .header_top .contact_nav span {
+     margin-right: 25px;
+     color: #555555;
+}
+
+    .header_section .header_top .contact_nav span i {
+        color: dimgrey;
+    }
+.nav-item{
+    position:relative;
+}
+
+.nav-item::after {
+    content: '';
+    opacity: 0;
+    transition: all 0.2s;
+    height: 2px;
+    width 100%;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-item:hover::after{
+    opacity:1;
+    border-bottom-width:2px;
+    border-bottom-color:dimgray;
+}
+
+
+.navbar-brand {
+    padding: 15px 35px;
+}
+
+.navbar-brand img {
+    width: 40px;
+}
+.custom_nav-container {
+    padding: 0;
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link {
+    padding: 3px 15px;
+    margin: 10px 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link {
+    color: #252525;
+}
+
+.area .header_section,
+.area nav {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.area {
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size:12px;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 20px; /* Ýhtiyaca göre saðdan ve soldan iç kenar boþluðunu ayarlayabilirsiniz */
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.dropdown{
+    margin-left:20px;
+}
+
+.c-item{
+    height:500px;
+}
+
+.c-img .card-img-top {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.card-img-top {
+    height: 250px;
+    border-top-right-radius: 8%;
+    border-top-left-radius: 8%;
+}
+
+.card {
+    border-top-right-radius: 8%;
+    border-top-left-radius: 8%;
+    transition: all 0.3s;
+}
+.card:hover{
+    transform:scale(1.05);
+}
+
+.img-about {
+    height: 400px;
+    object-fit: cover;
+}
+
+.about-text {
+    justify-content: center;
+    align-items: center;
 }
