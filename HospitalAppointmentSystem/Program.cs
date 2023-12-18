@@ -1,10 +1,14 @@
 using HospitalAppointmentSystem.DataBase;
+using HospitalAppointmentSystem.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<HospitalDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnectionString")));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<HospitalDbContext>();
 
 var app = builder.Build();
 
@@ -26,5 +30,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+IdentitySeedData.IdentityTestUser(app);
 
 app.Run();
