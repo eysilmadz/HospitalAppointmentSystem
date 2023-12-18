@@ -1,23 +1,29 @@
 ﻿using HospitalAppointmentSystem.Models.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HospitalAppointmentSystem.DataBase
 {
-    public class HospitalDbContext : DbContext
+    public class HospitalDbContext : IdentityDbContext<IdentityUser>
     {
-        public DbSet<Hospital> Hospitals { get; set; }
-        public DbSet<District> Districts { get; set; }
-        public DbSet<Province> Provinces { get; set; }
-        public DbSet<Policlinic> Policlinics { get; set; }
-        public DbSet<Doctor> Doctors { get; set; }
-        public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<MajorDepartment> MajorDepartments { get; set; }
-        public DbSet<Patient> Patients { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("server=EYSILMADZ; database=HospitalDb; Trusted_connection=true; TrustServerCertificate=True");
+
         }
+        public DbSet<Hospital> ?Hospitals { get; set; }
+        public DbSet<District> ?Districts { get; set; }
+        public DbSet<Province> ?Provinces { get; set; }
+        public DbSet<Policlinic> ?Policlinics { get; set; }
+        public DbSet<Doctor> ?Doctors { get; set; }
+        public DbSet<Appointment> ?Appointments { get; set; }
+        public DbSet<MajorDepartment> ?MajorDepartments { get; set; }
+        public DbSet<Patient> ?Patients { get; set; }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("server=EYSILMADZ; database=HospitalDb; Trusted_connection=true; TrustServerCertificate=True");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +32,21 @@ namespace HospitalAppointmentSystem.DataBase
 
             modelBuilder.Entity<HospitalMajorDepartment>()
                 .HasKey(hmd => new { hmd.HospitalId, hmd.MajorDepartmentId });
+
+            modelBuilder.Entity<IdentityUserLogin<string>>(b =>
+            {
+                b.HasKey(l => l.UserId);
+            });
+
+            modelBuilder.Entity<IdentityUserRole<string>>(b =>
+            {
+                b.HasKey(l => l.UserId);
+            });
+
+            modelBuilder.Entity<IdentityUserToken<string>>(b =>
+            {
+                b.HasKey(l => l.UserId);
+            });
 
             //FK constraint in Doctor table
             modelBuilder.Entity<Doctor>()
