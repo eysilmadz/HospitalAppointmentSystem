@@ -1,11 +1,12 @@
-﻿using HospitalAppointmentSystem.Models.Entities;
+﻿using HospitalAppointmentSystem.Models;
+using HospitalAppointmentSystem.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HospitalAppointmentSystem.DataBase
 {
-    public class HospitalDbContext : IdentityDbContext<IdentityUser>
+    public class HospitalDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options)
         {

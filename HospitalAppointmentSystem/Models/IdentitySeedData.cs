@@ -18,14 +18,15 @@ namespace HospitalAppointmentSystem.Models
                 context.Database.Migrate();
             }
 
-            var userManager = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            var userManager = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<UserManager<AppUser>>();
 
             var user = await userManager.FindByNameAsync(adminUser);
 
             if (user == null)
             {
-                user = new IdentityUser
+                user = new AppUser
                 {
+                    FullName = adminUser,
                     UserName = adminUser,
                     Email = "B211210081@sakarya.edu.tr",
                     PhoneNumber = "5555555555"

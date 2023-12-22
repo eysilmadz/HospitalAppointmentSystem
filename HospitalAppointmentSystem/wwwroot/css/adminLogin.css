@@ -1,0 +1,136 @@
+﻿/*html, body{ 
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+}
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300;1,400&family=Nunito:ital,wght@1,300&family=Open+Sans:wght@300&family=PT+Sans:ital@1&family=Playfair+Display:ital,wght@1,500&family=Raleway:ital,wght@1,300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:ital,wght@1,300;1,400&family=Nunito:ital,wght@1,300&family=Open+Sans:wght@300&family=PT+Sans:ital@1&family=Playfair+Display:ital,wght@1,500&family=Raleway:ital,wght@1,300&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    color: #45474B;
+}
+
+.login-wrapper {
+    background: #ececec;
+    padding: 0 5px 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.side-image {
+    background-image: url("../images/adminLogin.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+}
+
+.row {
+    width: 1200px;
+    height: 700px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 0px;
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+}
+
+.text {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+
+    .text p {
+        font-family: 'Dancing Script', cursive;
+        color: azure;
+        font-size: 27px;
+    }
+
+.form-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 400px; /* İstediğiniz genişliği ayarlayabilirsiniz */
+    width: 100%;
+    margin: auto;
+}
+
+.form-box {
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    padding: 5px;
+    width: 300px;
+}
+
+.form-box a {
+    font-size:12px;
+    text-decoration: none;
+    color: #45474B;
+}
+
+.button-container {
+    display: flex; /* veya display: grid; */
+    flex-direction: column; /* veya grid-template-columns: 1fr; */
+    gap: 10px; /* İki düğme arasındaki boşluk */
+    width:150px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .side-image {
+        border-radius: 10px 10px 0 0;
+    }
+
+    img {
+        width: 35px;
+        position: absolute;
+        top: 20px;
+        left: 47%;
+    }
+
+    .text {
+        position: absolute;
+        top: 70%;
+        text-align: center;
+    }
+
+        .text p, i {
+            font-size: 16px;
+        }
+
+    .row {
+        max-width: 420px;
+        width: 100%;
+    }
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
