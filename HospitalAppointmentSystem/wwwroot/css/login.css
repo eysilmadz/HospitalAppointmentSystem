@@ -134,3 +134,9 @@ body{
     display: flex;
     align-items: center;
 }
+
+.gender {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
