@@ -1,0 +1,95 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model HospitalAppointmentSystem.Models.ViewModels.AddHospitalViewModel
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+        color: #45474B;
+    }
+
+    .container-addHospital {
+        margin-top: 20px;
+        width: 850px;
+        background: #ececec;
+        padding: 0 5px 0 5px;
+        box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+        border-radius: 10px; /* Adjust the value as needed for the desired roundness */
+    }
+
+    .addHospital-body {
+        margin: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+</style>
+
+<div class="container-addHospital mx-auto">
+    <div class="row justify-content-center">
+        <div class="addHospital-body">
+            <h3>@Localizer["Hastane Ekle"]</h3>
+            <div class="hospitalAdd-container table-container">
+                <form asp-controller="Hospital" asp-action="Add" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">@Localizer["Hastane Adı"]</label>
+                        <input type="text" class="form-control" asp-for="HospitalName">
+                        <span asp-validation-for="HospitalName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">@Localizer["İl :"]</label>
+                        <select class="form-select " id="selectProvince" name="SelectedProvinceId" asp-items="@Model.ProvinceSelectList">
+                            <option value="NOSELECTED">@Localizer["İl Seçiniz"]</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label mb-1">@Localizer["İlçe :"]</label>
+                        <select class="form-select mb-2" id="selectDistrict" name="SelectedDistrictId" asp-items="@Model.DistrictSelectList">
+                            <option value="NOSELECTED">@Localizer["İlçe Seçiniz"]</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">@Localizer["Ekle"]</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Sayfa yüklendiğinde ilçe dropdown'ını devre dışı bırak
+            $("#selectDistrict").prop("disabled", true);
+
+            // Şehir dropdown'ının değişiklik olayını ele al
+            $("#selectProvince").change(function () {
+                var selectedProvinceId = $(this).val();
+
+                // İl seçilmişse ilçe dropdown'ını aktifleştir
+                if (selectedProvinceId !== "NOSELECTED") {
+                    $("#selectDistrict").prop("disabled", false);
+                } else {
+                    // İl seçilmemişse ilçe dropdown'ını devre dışı bırak
+                    $("#selectDistrict").prop("disabled", true);
+                }
+
+                // Seçilen ile göre ilçeleri getiren AJAX isteği yap
+                $.get("/User/GetDistricts", { id_province: selectedProvinceId }, function (data) {
+                    // Mevcut ilçe seçeneklerini temizle
+                    $("#selectDistrict").empty();
+
+                    // Yeni ilçe seçeneklerini ekle
+                    $("#selectDistrict").append('<option value="NOSELECTED">@Localizer["İlçe Seçiniz"]</option>');
+                    $.each(data, function (index, item) {
+                        $("#selectDistrict").append('<option value="' + item.value + '">' + item.text + '</option>');
+                    });
+                });
+            });
+        });
+    </script>
+</div>

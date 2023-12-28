@@ -1,7 +1,10 @@
 using HospitalAppointmentSystem.DataBase;
 using HospitalAppointmentSystem.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,28 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<HospitalDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnectionString")));
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<HospitalDbContext>();
+
+builder.Services.AddControllersWithViews().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+
+
+builder.Services.AddLocalization(options =>
+{
+    options.ResourcesPath = "Resources";
+});
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo("tr"),
+        new CultureInfo("en")
+
+    };
+
+    options.DefaultRequestCulture = new RequestCulture("tr");
+    options.SupportedUICultures = supportedCultures;
+});
+
 //Password,User kýsýtlamalarý
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -28,6 +53,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 var app = builder.Build();
+app.UseRequestLocalization();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

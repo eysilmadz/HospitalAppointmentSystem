@@ -1,4 +1,65 @@
-﻿@{
-    Layout = "_Dashboard";
-}
-<h1>HOSPITAL CRUD</h1>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@using HospitalAppointmentSystem.Models.ViewModels
+@model List<HospitalViewModel>
+
+
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+        color: #45474B;
+    }
+
+    .table-container {
+        max-height: 450px;
+        overflow-y: auto;
+    }
+
+    .container-hospList {
+        margin-top: 20px;
+        width: 850px;
+        background: #ececec;
+        padding: 0 5px 0 5px;
+        box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="container-hospList mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="hospitalList-body">
+                <h2 class="text-center m-3">@Localizer["Hastanelerimiz"]</h2>
+                <div class="hospitalList-container table-container">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>@Localizer["Hastane ID"]</th>
+                            <th>@Localizer["Hastane Adı"]</th>
+                            <th>@Localizer["İlçe"]</th>
+                            <th>@Localizer["İl"]</th>
+                            <th>@Localizer["Sil"]</th>
+                        </tr>
+                        @foreach (var hospital in Model)
+                        {
+                            <tr>
+                                <td>@hospital.HospitalId</td>
+                                <td>@hospital.HospitalName</td>
+                                <td>@hospital.District</td>
+                                <td>@hospital.Province</td>
+                                <td>
+                                    <form asp-action="Delete" asp-controller="Hospital" method="post">
+                                        <input type="hidden" name="id" value="@hospital.HospitalId" />
+                                        <button type="submit" class="btn btn-danger">@Localizer["Sil"]</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div class="text-center mt-4 mb-4">
+                    <a class="btn btn-primary" asp-controller="Hospital" asp-action="Add">@Localizer["Hastane Ekle"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
