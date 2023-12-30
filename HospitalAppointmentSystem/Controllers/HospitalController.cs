@@ -133,6 +133,7 @@ namespace HospitalAppointmentSystem.Controllers
 
             // Hastaneye bağlı doktorları sil
             _context.Doctors.RemoveRange(doctorsWithHospitalId);
+            
             // Hastaneye bağlı randevuları sil
 
             var appointmentsWithHospitalId = _context.Appointments.Where(d => d.HospitalId == id).ToList();

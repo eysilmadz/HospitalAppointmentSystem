@@ -1,4 +1,63 @@
-﻿@{
-    Layout = "_Dashboard";
-}
-<h1>POLICLINIC CRUD</h1>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@using HospitalAppointmentSystem.Models.ViewModels
+@model List<PoliclinicViewModel>
+
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+        color: #45474B;
+    }
+
+    .table-container {
+        max-height: 450px;
+        overflow-y: auto;
+    }
+
+    .container-polList {
+        margin-top: 20px;
+        width: 850px;
+        background: #ececec;
+        padding: 0 5px 0 5px;
+        box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="container-polList mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="polList-body">
+                <h2 class="text-center m-3">@Localizer["Poliklinikler"]</h2>
+                <div class="polList-container table-container">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>@Localizer["Poliklinik ID"]</th>
+                            <th>@Localizer["Ana Bilim Dalı"]</th>
+                            <th>@Localizer["Poliklinik Adı"]</th>
+                            <th>@Localizer["Sil"]</th>
+                        </tr>
+                        @foreach (var clinic in Model)
+                        {
+                            <tr>
+                                <td>@clinic.PoliclinicId</td>
+                                <td>@clinic.MajorDepartment</td>
+                                <td>@clinic.PoliclinicName</td>
+                                <td>
+                                    <form asp-action="Delete" asp-controller="Policlinic" method="post">
+                                        <input type="hidden" name="id" value="@clinic.PoliclinicId" />
+                                        <button type="submit" class="btn btn-danger">@Localizer["Sil"]</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div class="text-center mt-4 mb-4">
+                    <a class="btn btn-primary" asp-controller="Policlinic" asp-action="Add">@Localizer["Poliklinik Ekle"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

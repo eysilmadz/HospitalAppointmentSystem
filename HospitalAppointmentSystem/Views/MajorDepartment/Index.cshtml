@@ -1,4 +1,61 @@
-﻿@{
-    Layout = "_Dashboard";
-}
-<h1>MAJOR DEPARTMENT CRUD</h1>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@using HospitalAppointmentSystem.Models.ViewModels
+@model List<MajorDepartmentViewModel>
+
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+        color: #45474B;
+    }
+
+    .table-container {
+        max-height: 450px;
+        overflow-y: auto;
+    }
+
+    .container-majorList {
+        margin-top: 20px;
+        width: 850px;
+        background: #ececec;
+        padding: 0 5px 0 5px;
+        box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="container-majorList mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="majorList-body">
+                <h2 class="text-center m-3">@Localizer["Ana bilim Dalları"]</h2>
+                <div class="majorList-container table-container">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>@Localizer["Ana Bilim Dalı ID"]</th>
+                            <th>@Localizer["Ana Bilim Dalı Adı"]</th>
+                            <th>@Localizer["Sil"]</th>
+                        </tr>
+                        @foreach (var d in Model)
+                        {
+                            <tr>
+                                <td>@d.MajorDepartmentId</td>
+                                <td>@d.MajorDepartmentName</td>
+                                <td>
+                                    <form asp-action="Delete" asp-controller="MajorDepartment" method="post">
+                                        <input type="hidden" name="id" value="@d.MajorDepartmentId" />
+                                        <button type="submit" class="btn btn-danger">@Localizer["Sil"]</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div class="text-center mt-4 mb-4">
+                    <a class="btn btn-primary" asp-controller="MajorDepartment" asp-action="Add">@Localizer["Ana Bilim Dalı Ekle"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

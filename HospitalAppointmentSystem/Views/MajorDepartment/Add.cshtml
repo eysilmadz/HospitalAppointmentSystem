@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model HospitalAppointmentSystem.Models.ViewModels.MajorDepartmentViewModel
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+        color: #45474B;
+    }
+
+    .container-addPol {
+        margin-top: 20px;
+        width: 850px;
+        background: #ececec;
+        padding: 0 5px 0 5px;
+        box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+        border-radius: 10px;
+    }
+
+    .addPol-body {
+        margin: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+</style>
+
+<div class="container-addPol mx-auto">
+    <div class="row justify-content-center">
+        <div class="addPol-body">
+            <h3>@Localizer["Ana Bilim Dalı Ekle"]</h3>
+            <div class="polAdd-container table-container">
+                <form asp-controller="MajorDepartment" asp-action="Add" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">@Localizer["Ana Bilim Dalı :"]</label>
+                        <input type="text" class="form-control" asp-for="MajorDepartmentName">
+                        <span asp-validation-for="MajorDepartmentName" class="text-danger"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">@Localizer["Ekle"]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</div>
