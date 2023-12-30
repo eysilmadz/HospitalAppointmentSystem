@@ -52,6 +52,14 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 });
 
+//auth
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/UserLogin";
+    options.AccessDeniedPath = "/Home/AccessDenied";
+});
+
+
 var app = builder.Build();
 app.UseRequestLocalization();
 
@@ -67,7 +75,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

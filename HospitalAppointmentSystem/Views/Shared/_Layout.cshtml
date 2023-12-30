@@ -14,26 +14,26 @@
         <header class="header_section">
             <div class="header_top">
                 <div class="container">
-                    <div class="contact_nav">
+                    <div class="contact_nav" style="justify-content: center; ">
                         <span>
                             <i class="bi bi-telephone-fill" aria-hidden="true"></i>
-                            <span>
+                            <a>
                                 0212 000 000
-                            </span>
+                            </a>
                         </span>
 
                         <span>
                             <i class="bi bi-envelope-fill" aria-hidden="true"></i>
-                            <span>
+                            <a>
                                 Email : info@gmail.com
-                            </span>
+                            </a>
                         </span>
 
                         <span>
                             <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
-                            <span>
+                            <a href="#haritalar" style="text-decoration: none; color: #45474B;">
                                 Konum
-                            </span>
+                            </a>
                         </span>
                     </div>
                 </div>
@@ -42,10 +42,10 @@
     </div>
 
     <!--nav-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light custom_nav-container container-fluid">
-        <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-            <img src="~/images/logo.png" alt="Logo" width="34" height="34" class="d-inline-block align-text-top">
-            EsMerv Hastanesi
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom_nav-container container-fluid" >
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="display: flex; flex-direction: row; align-items: center;">
+            <img src="~/images/sagliklogo.png" alt="Logo" class="d-inline-block align-text-top" width="50%" height="50%">
+            <div style="margin-left:3px; color: #45474B;">HRS</div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,16 +56,24 @@
                     <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">Anasayfa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="Privacy">Duyurular</a>
+                    <a class="nav-link" href="#duyurular">Duyurular</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Hakkımızda</a>
+                    <a class="nav-link" href="#hakkımızda">Hakkımızda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">İletişim</a>
+                    <a class="nav-link" href="#haritalar">Haritalar</a>
                 </li>
             </ul>
-            <a class="btn btn-outline-secondary" type="submit" asp-controller="User" asp-action="Index">RANDEVU AL</a>
+            @*@if (User.Identity.IsAuthenticated)
+            {
+                <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
+            }
+            else
+            {
+                 <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
+            }*@
+             <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
 
             <div class="dropdown">
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,7 +94,7 @@
 
     <footer class="bg-dark py-5 mt-5">
         <div class="container text-light text-center">
-            <p class=" mb-3">EsMerv Hastanesi Randevu Alma Noktası</p>
+            <p class=" mb-3">T.C. Sağlık Bakanlığı Hastane Randevu Sistemi</p>
             <small class="text-white-50">&copy; Tüm Hakları Saklıdır</small>
         </div>
     </footer>

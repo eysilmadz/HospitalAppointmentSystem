@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using HospitalAppointmentSystem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HospitalAppointmentSystem.Controllers
 {
+
     public class UserController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

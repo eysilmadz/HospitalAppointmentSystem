@@ -2,9 +2,16 @@
 
 namespace HospitalAppointmentSystem.Models
 {
-    public class AppUser:IdentityUser
+    public class AppUser : IdentityUser
     {
         public string? FullName { get; set; }
-        //Farklı bilgiler de mesela kayıt tarihi gibi eklenebilir
+
+        public string? Surname {get; set;}
+
+        public string? IdentityNo { get; set; }
+
+        public string? Gender { get; set; }
+
+        public string? Birthday { get; set; }
     }
-}
+} 

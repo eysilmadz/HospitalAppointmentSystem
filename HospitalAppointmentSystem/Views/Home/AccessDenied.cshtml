@@ -1,0 +1,17 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] 404 Not Found</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="accessdenied" style="background-size: cover; background-position: center; height: 100vh; display: flex;  align-items: center; justify-content: center;">
+        <img src="/images/404NotFound1.gif" />
+        <button type="button" class="btn btn-success" style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 50px" onclick="window.location.href='@Url.Action("Index", "Home")'">Anasayfa</button>
+    </div>
+</body>
+</html>
