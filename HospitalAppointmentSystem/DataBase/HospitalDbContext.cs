@@ -41,7 +41,7 @@ namespace HospitalAppointmentSystem.DataBase
 
             modelBuilder.Entity<IdentityUserRole<string>>(b =>
             {
-                b.HasKey(l => l.UserId);
+                b.HasKey(l => new { l.UserId, l.RoleId });
             });
 
             modelBuilder.Entity<IdentityUserToken<string>>(b =>

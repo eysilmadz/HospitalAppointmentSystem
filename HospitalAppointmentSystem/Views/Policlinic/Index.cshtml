@@ -1,8 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-
 @using HospitalAppointmentSystem.Models.ViewModels
 @model List<PoliclinicViewModel>
+@{
+    Layout = "_Dashboard";
+}
 
 <style>
     * {
