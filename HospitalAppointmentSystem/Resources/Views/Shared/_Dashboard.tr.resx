@@ -117,19 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Ana Bilim Dalı :" xml:space="preserve">
-    <value>Ana Bilim Dalı :</value>
+  <data name="AnaBilimDalı İşlemleri" xml:space="preserve">
+    <value>AnaBilimDalı İşlemleri</value>
   </data>
-  <data name="Ana Bilim Dalı Ekle" xml:space="preserve">
-    <value>Ana Bilim Dalı Ekle</value>
+  <data name="Doktor İşlemleri" xml:space="preserve">
+    <value>Doktor İşlemleri</value>
   </data>
-  <data name="Ekle" xml:space="preserve">
-    <value>Ekle</value>
+  <data name="Hastane İşlemleri" xml:space="preserve">
+    <value>Hastane İşlemleri</value>
   </data>
-  <data name="Hangi Hastaneye eklenilecek :" xml:space="preserve">
-    <value>Hangi Hastaneye eklenilecek :</value>
+  <data name="Merhaba" xml:space="preserve">
+    <value>Merhaba</value>
   </data>
-  <data name="Hastane Seçiniz" xml:space="preserve">
-    <value>Hastane Seçiniz</value>
+  <data name="Poliklinik İşlemleri" xml:space="preserve">
+    <value>Poliklinik İşlemleri</value>
+  </data>
+  <data name="Rol Listesi" xml:space="preserve">
+    <value>Rol Listesi</value>
+  </data>
+  <data name="Çıkış Yap" xml:space="preserve">
+    <value>Çıkış Yap</value>
+  </data>
+  <data name="Üye Listesi" xml:space="preserve">
+    <value>Üye Listesi</value>
+  </data>
+  <data name="Üye İşlemleri" xml:space="preserve">
+    <value>Üye İşlemleri</value>
   </data>
 </root>

@@ -1,0 +1,25 @@
+﻿body {
+    background: #ececec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.apointment-box {
+    width: 1200px;
+    height: 500px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+}
+
+h3 i{
+    margin-right:10px;
+    color:black;
+}
+.button-group {
+    text-align: center;
+}

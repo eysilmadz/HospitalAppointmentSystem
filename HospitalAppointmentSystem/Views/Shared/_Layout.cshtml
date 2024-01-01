@@ -1,5 +1,12 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    var culture = ViewData["Culture"] as string ?? "tr";
+}
+
+<!DOCTYPE html>
+<html lang="@culture">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +15,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HospitalAppointmentSystem.styles.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   @*  <script src="~/js/site.js" charset="windows-1254" type="text/javascript"></script> *@
 </head>
 <body>
     <div class="area">
@@ -32,7 +42,7 @@
                         <span>
                             <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
                             <a href="#haritalar" style="text-decoration: none; color: #45474B;">
-                                Konum
+                                @Localizer["Konum"]
                             </a>
                         </span>
                     </div>
@@ -53,16 +63,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                    <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">@Localizer["Anasayfa"]</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#duyurular">Duyurular</a>
+                    <a class="nav-link" href="#duyurular">@Localizer["Duyurular"]</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#hakkımızda">Hakkımızda</a>
+                    <a class="nav-link" href="#hakkımızda">@Localizer["Hakkımızda"]</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#haritalar">Haritalar</a>
+                    <a class="nav-link" href="#haritalar">@Localizer["Haritalar"]</a>
                 </li>
             </ul>
             @if (User.IsInRole("Hasta"))
@@ -70,25 +80,25 @@
                 @if (User.Identity?.IsAuthenticated == true)
                 {
 
-                    <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="Apointment">RANDEVU AL</a>
+                    <a class="btn btn-outline-secondary" type="submit" asp-controller="Apointment" asp-action="Index">@Localizer["RANDEVU AL"]</a>
 
                 }
                 else
                 {
-                    <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
+                    <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">@Localizer["RANDEVU AL"]</a>
                 }
             }
             else
             {
-                <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
+                <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">@Localizer["RANDEVU AL"]</a>
             }
             <div class="dropdown">
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="~/images/language.png" width="24px" height="24px" />
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Türkçe</a></li>
-                    <li><a class="dropdown-item" href="#">English</a></li>
+                    <li><a class="dropdown-item" href="/?ui-culture=tr">Türkçe</a></li>
+                    <li><a class="dropdown-item" href="/?ui-culture=en">English</a></li>
                 </ul>
             </div>
         </div>
@@ -101,7 +111,7 @@
 
     <footer class="bg-dark py-5 mt-5">
         <div class="container text-light text-center">
-            <p class=" mb-3">T.C. Sağlık Bakanlığı Hastane Randevu Sistemi</p>
+            <p class=" mb-3">T.C. Sağlık Bakanlığı @Localizer["Hastane Randevu Sistemi"]</p>
             <small class="text-white-50">&copy; Tüm Hakları Saklıdır</small>
         </div>
     </footer>

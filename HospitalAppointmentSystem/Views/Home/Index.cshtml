@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
     ViewData["Title"] = "Anasayfa";
 }
 
@@ -16,22 +18,22 @@
             <div class="carousel-item active c-item">
                 <img src="~/images/slider_1.jpg" class="d-block w-100 c-img" alt="Slide 1">
                 <div class="carousel-caption top-0 mt-4">
-                    <p class="mt-5 fs-3 text-uppercase">Hastane Randevu Sistemi</p>
-                    <h1 class="display-1 fw-bolder text-capitalize">En Hızlı Randevu</h1>
+                    <p class="mt-5 fs-3 text-uppercase">@Localizer["Hastane Randevu Sistemi"]</p>
+                    <h1 class="display-1 fw-bolder text-capitalize">@Localizer["En Hızlı Randevu"]</h1>
                 </div>
             </div>
             <div class="carousel-item c-item">
                 <img src="~/images/slider_2.jpg" class="d-block w-100 c-img" alt="Slide 2">
                 <div class="carousel-caption top-0 mt-4">
-                    <p class="text-uppercase fs-3 mt-5">Hastane Randevu Sistemi</p>
-                    <p class="display-1 fw-bolder text-capitalize">En Hızlı Randevu</p>
+                    <p class="text-uppercase fs-3 mt-5">@Localizer["Hastane Randevu Sistemi"]</p>
+                    <p class="display-1 fw-bolder text-capitalize">@Localizer["En Hızlı Randevu"]</p>
                 </div>
             </div>
             <div class="carousel-item c-item">
                 <img src="~/images/slider_3.jpg" class="d-block w-100 c-img" alt="Slide 3">
                 <div class="carousel-caption top-0 mt-4">
-                    <p class="text-uppercase fs-3 mt-5">Hastane Randevu Sistemi</p>
-                    <p class="display-1 fw-bolder text-capitalize">En Hızlı Randevu</p>
+                    <p class="text-uppercase fs-3 mt-5">@Localizer["Hastane Randevu Sistemi"]</p>
+                    <p class="display-1 fw-bolder text-capitalize">@Localizer["En Hızlı Randevu"]</p>
                 </div>
             </div>
         </div>
@@ -46,14 +48,14 @@
     </div>
     <div id="duyurular">
         <section id="cards" class="pt-md-5">
-            <h2 class="text-center my-5">DUYURULAR</h2>
+            <h2 class="text-center my-5">@Localizer["DUYURULAR"]</h2>
             <div class="container">
                 <div class="row gy-3">
                     <div class="col-md-4">
                         <div class="card h-100" @* style="height:200px;" *@>
                             <img src="~/images/slider1.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text">Sağlık Bakanlığına bağlı tüm sağlık kurum ve kuruluşlarına muayene randevu hizmeti sunan Hastane Randevu Sistemi (HRS), gelişmiş teknolojiler ışığında yenilenmeye ve hizmet kalitesini artırmaya devam ediyor.</p>
+                                <p class="card-text">@Localizer["Sağlık Bakanlığına bağlı tüm sağlık kurum ve kuruluşlarına muayene randevu hizmeti sunan Hastane Randevu Sistemi (HRS), gelişmiş teknolojiler ışığında yenilenmeye ve hizmet kalitesini artırmaya devam ediyor."]</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +63,7 @@
                         <div class="card h-100" @* style="height:200px;" *@>
                             <img class="card-img-top" src="~/images/slider4.jpg" alt="">
                             <div class="card-body">
-                                <p class="card-text">İhtiyaçları önceliğimiz olan 65 yaş üstü, kanser hastası, kimsesiz, riskli gebe ve engelli vatandaşlarımız için HRS'de randevu önceliği uygulaması başlatıldı.</p>
+                                <p class="card-text">@Localizer["İhtiyaçları önceliğimiz olan 65 yaş üstü, kanser hastası, kimsesiz, riskli gebe ve engelli vatandaşlarımız için HRS'de randevu önceliği uygulaması başlatıldı."]</p>
                             </div>
                         </div>
                     </div>
@@ -69,7 +71,7 @@
                         <div class="card h-100" @* style="height:200px;" *@>
                             <img class="card-img-top" src="~/images/slider3.jpg" alt="">
                             <div class="card-body">
-                                <p class="card-text">Vatandaşlarımız, hrs.gov.tr adresinden HRS'nin sunduğu hizmetlerden yararlanabilmektedir.</p>
+                                <p class="card-text">@Localizer["Vatandaşlarımız, hrs.gov.tr adresinden HRS'nin sunduğu hizmetlerden yararlanabilmektedir"].</p>
                             </div>
                         </div>
                     </div>
@@ -82,8 +84,9 @@
         <section id="about" class="pt-md-5" style="background-color:#F5F7F8;margin-top:20px">
             <div class="row gx-3 ">
                 <div class="col-md-8 about-text">
-                    <h1 class="text-center my-5">Hastane Randevu Sistemi</h1>
+                    <h1 class="text-center my-5">@Localizer["Hastane Randevu Sistemi"]</h1>
                     <p class="text-center my-5 mx-5">
+                        @Localizer[""]
                         T.C. Sağlık Bakanlığı, Türkiye'de daha etkin ve verimli bir şekilde sağlık hizmetlerine ulaşılması amacı ile Sağlıkta Dönüşüm Projesi'ni yürürlüğe koymuş ve bu program kapsamındaki çalışmaları
                         büyük ölçüde gerçekleştirmiştir. Bu programın en önemli çalışmalarından biri de Hastane Randevu Sistemi'dir. HRS; vatandaşların Sağlık Bakanlığına bağlı hastaneler ile ağız ve diş sağlığı
                         merkezleri ve aile hekimlerine Alo182 arayarak canlı operatörlerden, web üzerinden ya da MHRS mobil uygulamasından kendilerine istedikleri hastane ve hekimden randevu alabilecekleri bir sistemdir.
@@ -102,10 +105,10 @@
     <div id="haritalar">
         <section id="location" class="pt-md-5 mb-0" style="background-color:#F5F7F8">
             <div class="container mx-auto" style="text-align:center;">
-                <h2>KONUM</h2>
+                <h2>@Localizer["KONUM"]</h2>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97895.27776317642!2d32.69928126682801!3d39.936302184898665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d347c602345319%3A0xc0ccc25821faa755!2zVC5DLiBTYcSfbMSxayBCYWthbmzEscSfxLE!5e0!3m2!1str!2str!4v1703921695598!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </section>
+        </section>k
     </div>
 
 </div>

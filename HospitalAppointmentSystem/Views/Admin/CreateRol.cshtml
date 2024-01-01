@@ -1,19 +1,21 @@
-﻿@model RoleViewModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model RoleViewModel
 @{
     Layout = "_Dashboard";
 }
 
 
 <div style="display:flex; flex-direction:column; align-items:center;  margin-top:150px">
-    <h5 style="display:flex; justify-content:center; margin-top:10px;">Rol Ekle</h5>
+    <h5 style="display:flex; justify-content:center; margin-top:10px;">@Localizer["Rol Ekle"]</h5>
     <div class="col-md-4 form-area">
         <div class="container form-box">
             <form asp-action="CreateRol" method="post" class="needs-validation" style="display: flex; flex-direction: column; align-items: center;" novalidate>
                 <div class="form-group mb-2">
-                    <input type="text" class="form-control" asp-for="@Model.RoleName" placeholder="Ad " required>
+                    <input type="text" class="form-control" asp-for="@Model.RoleName" placeholder="@Localizer["Ad"] " required>
                     <span asp-validation-for="@Model.RoleName" class="text-danger"></span>
                 </div>
-                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <button type="submit" class="btn btn-primary">@Localizer["Kaydet"]</button>
 
             </form>
         </div>

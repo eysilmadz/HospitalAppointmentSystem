@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HospitalAppointmentSystem.Controllers
 {
-    [Authorize(Roles = "Admin")]
+   [Authorize(Roles = "Admin")]
 
     public class PoliclinicController : Controller
     {
@@ -51,7 +51,8 @@ namespace HospitalAppointmentSystem.Controllers
         {
             var model = new AddPoliclinicViewModel
             {
-                MajorDepartmentSelectList = GetMajorDepartList()
+                MajorDepartmentSelectList = GetMajorDepartList(),
+                SelectHospital= GetHospitalSelectListAsync().Result
             };
             return View(model);
         }
@@ -59,6 +60,8 @@ namespace HospitalAppointmentSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(AddPoliclinicViewModel model)
         {
+            model.SelectHospital = await GetHospitalSelectListAsync();
+
             if (ModelState.IsValid)
             {
                 var newPol = new Policlinic
@@ -68,6 +71,18 @@ namespace HospitalAppointmentSystem.Controllers
                 };
 
                 _context.Policlinics.Add(newPol);
+                await _context.SaveChangesAsync();
+
+                // HospitalMajorDepartment tablosuna ekler
+                int selectedHospitalId = model.SelectedHospitalId;
+
+                var hospitalPoli = new HospitalPoliclinic
+                {
+                    HospitalId = selectedHospitalId,
+                    PoliclinicId = newPol.PoliclinicId
+                };
+
+                _context.HospitalPoliclinic.Add(hospitalPoli);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -100,6 +115,15 @@ namespace HospitalAppointmentSystem.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
+        }
+        private async Task<List<SelectListItem>> GetHospitalSelectListAsync()
+        {
+            var hospitals = await _context.Hospitals.ToListAsync();
+            return hospitals.Select(h => new SelectListItem
+            {
+                Text = h.HospitalName,
+                Value = h.HospitalId.ToString()
+            }).ToList();
         }
 
     }

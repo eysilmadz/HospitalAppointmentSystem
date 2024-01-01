@@ -3,6 +3,9 @@ using HospitalAppointmentSystem.Models.Entities;
 using HospitalAppointmentSystem.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace HospitalAppointmentSystem.Controllers
 {
@@ -30,12 +33,19 @@ namespace HospitalAppointmentSystem.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            return View();
+            var model = new MajorDepartmentViewModel
+            {
+                SelectHospital = GetHospitalSelectListAsync().Result
+            };
+
+            return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(MajorDepartmentViewModel model)
         {
+            model.SelectHospital = await GetHospitalSelectListAsync();
+
             if (ModelState.IsValid)
             {
                 var major = new MajorDepartment
@@ -45,13 +55,27 @@ namespace HospitalAppointmentSystem.Controllers
 
                 // Veritabanına ekleme
                 _context.MajorDepartments.Add(major);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
+
+                // HospitalMajorDepartment tablosuna ekler
+                int selectedHospitalId = model.SelectedHospitalId;
+
+                var hospitalMajorDepartment = new HospitalMajorDepartment
+                {
+                    HospitalId = selectedHospitalId,
+                    MajorDepartmentId = major.MajorDepartmentId
+                };
+
+                _context.HospitalMajorDepartment.Add(hospitalMajorDepartment);
+                await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
 
+            // Eğer model geçerli değilse, formu tekrar göster ve SelectHospital'ı doldur
             return View(model);
         }
+
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
@@ -75,6 +99,16 @@ namespace HospitalAppointmentSystem.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
+        }
+
+        private async Task<List<SelectListItem>> GetHospitalSelectListAsync()
+        {
+            var hospitals = await _context.Hospitals.ToListAsync();
+            return hospitals.Select(h => new SelectListItem
+            {
+                Text = h.HospitalName,
+                Value = h.HospitalId.ToString()
+            }).ToList();
         }
     }
 }

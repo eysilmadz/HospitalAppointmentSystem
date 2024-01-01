@@ -5,6 +5,10 @@ namespace HospitalAppointmentSystem.Models.ViewModels
 {
     public class AddPoliclinicViewModel
     {
+        [Display(Name = "Hangi Hastaneye eklenilecek")]
+        public int SelectedHospitalId { get; set; }
+        public List<SelectListItem>? SelectHospital { get; set; }
+
         [Required(ErrorMessage = "Poliklinik Adı zorunludur.")]
         [MaxLength(50, ErrorMessage = "Poliklinik Adı en fazla 50 karakter olmalıdır.")]
         public string PoliclinicName { get; set; }

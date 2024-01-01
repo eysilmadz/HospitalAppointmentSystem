@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Randevu Al";
+}
+
+@{
+    Layout = null;
+}
+
+@model HospitalAppointmentSystem.Models.ViewModels.ApointmentViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HospitalAppointmentSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HospitalAppointmentSystem.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Apointment.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Appointment.js" charset="windows-1254" type="text/javascript"></script>
+</head>
+<body>
+    <div class="apointment-box">
+        <h3><a asp-controller="User" asp-action="UserHomePage"><i class="bi bi-arrow-left"></i></a>Randevu Ara</h3>
+        <form asp-controller="Apointment" asp-action="Apointment" method="post">
+            <div class="mb-2">
+                <label for="select_province" class="form-label mb-1">İl :</label>
+                <select class="form-select mb-2" id="select_province" name="select_province" asp-items="@Model.ProvinceSelectList" asp-for="SelectedProvince">
+                    <option value="NOSELECTED">İl Seçiniz</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="select_district" class="form-label mb-1">İlçe :</label>
+                <select class="form-select mb-2" id="select_district" name="select_district" asp-items="@Model.DistrictSelectList" asp-for="SelectedDistrict">
+                    <option value="NOSELECTED">İlçe Seçiniz</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="select_major" class="form-label mb-1">Klinik :</label>
+                <select class="form-select mb-2" id="select_major" name="select_major" asp-items="@Model.MajorDepartSelectList" asp-for="SelectedMajorDepart" disabled>
+                    <option value="NOSELECTED">Klinik Seçiniz</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="select_hospital" class="form-label mb-1">Hastane :</label>
+                <select class="form-select mb-2" id="select_hospital" name="select_hospital" asp-items="@Model.HospitalSelectList" asp-for="SelectedHospital">
+                    <option value="NOSELECTED">Hastane Seçiniz</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="select_clinic" class="form-label mb-1">Muayene Yeri :</label>
+                <select class="form-select mb-2" id="select_clinic" name="select_clinic" asp-items="@Model.ClinicSelectList" asp-for="SelectedClinic">
+                    <option value="NOSELECTED">Muayene Yeri Seçiniz</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="select_doctor" class="form-label mb-1">Doktor :</label>
+                <select class="form-select mb-2" id="select_doctor" name="select_doctor" asp-items="@Model.DoctorSelectList" asp-for="SelectedDoctor">
+                    <option value="NOSELECTED">Doktor Seçiniz</option>
+                </select>
+            </div>
+            <div class="mb-1 button-group">
+                <button type="submit" class="btn btn-outline-secondary">Randevu Ara</button>
+                <button type="button" id="resetButton" class="btn btn-danger">Temizle</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

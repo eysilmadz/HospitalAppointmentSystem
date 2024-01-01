@@ -117,19 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Ana Bilim Dalı :" xml:space="preserve">
-    <value>Ana Bilim Dalı :</value>
+  <data name="Anasayfa" xml:space="preserve">
+    <value>Home</value>
   </data>
-  <data name="Ana Bilim Dalı Ekle" xml:space="preserve">
-    <value>Ana Bilim Dalı Ekle</value>
+  <data name="Duyurular" xml:space="preserve">
+    <value>News</value>
   </data>
-  <data name="Ekle" xml:space="preserve">
-    <value>Ekle</value>
+  <data name="Hakkımızda" xml:space="preserve">
+    <value>About Us</value>
   </data>
-  <data name="Hangi Hastaneye eklenilecek :" xml:space="preserve">
-    <value>Hangi Hastaneye eklenilecek :</value>
+  <data name="Haritalar" xml:space="preserve">
+    <value>Map</value>
   </data>
-  <data name="Hastane Seçiniz" xml:space="preserve">
-    <value>Hastane Seçiniz</value>
+  <data name="Hastane Randevu Sistemi" xml:space="preserve">
+    <value>Hospital Appointment System</value>
+  </data>
+  <data name="Konum" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="RANDEVU AL" xml:space="preserve">
+    <value>APPOİNTMENT</value>
+  </data>
+  <data name="İletişim" xml:space="preserve">
+    <value>Contact</value>
   </data>
 </root>

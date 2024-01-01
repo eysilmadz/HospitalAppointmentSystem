@@ -47,6 +47,13 @@
                             <option value="NOSELECTED">@Localizer["Ana Bilim Dalını Seçiniz"]</option>
                         </select>
                     </div>
+                    <div class="mb-2">
+                        <label for="SelectedHospitalId" class="form-label mb-1">@Localizer["Hangi Hastaneye eklenilecek :"]</label>
+                        <select class="form-select mb-2" id="SelectedHospitalId" name="SelectedHospitalId" asp-items="@Model.SelectHospital" asp-for="SelectedHospitalId">
+                            <option value="NOSELECTED">@Localizer["Hastane Seçiniz"]</option>
+                        </select>
+                        <span asp-validation-for="SelectedHospitalId" class="text-danger"></span>
+                    </div>
                     <button type="submit" class="btn btn-primary">@Localizer["Ekle"]</button>
                 </form>
             </div>

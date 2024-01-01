@@ -117,19 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Ana Bilim Dalı :" xml:space="preserve">
-    <value>Ana Bilim Dalı :</value>
+  <data name="DUYURULAR" xml:space="preserve">
+    <value>NEWS</value>
   </data>
-  <data name="Ana Bilim Dalı Ekle" xml:space="preserve">
-    <value>Ana Bilim Dalı Ekle</value>
+  <data name="En Hızlı Randevu" xml:space="preserve">
+    <value>The Fastest Appointment</value>
   </data>
-  <data name="Ekle" xml:space="preserve">
-    <value>Ekle</value>
+  <data name="Hastane Randevu Sistemi" xml:space="preserve">
+    <value>Hospital Appointment System</value>
   </data>
-  <data name="Hangi Hastaneye eklenilecek :" xml:space="preserve">
-    <value>Hangi Hastaneye eklenilecek :</value>
+  <data name="KONUM" xml:space="preserve">
+    <value>LOCATİON</value>
   </data>
-  <data name="Hastane Seçiniz" xml:space="preserve">
-    <value>Hastane Seçiniz</value>
+  <data name="Sağlık Bakanlığına bağlı tüm sağlık kurum ve kuruluşlarına muayene randevu hizmeti sunan Hastane Randevu Sistemi (HRS), gelişmiş teknolojiler ışığında yenilenmeye ve hizmet kalitesini artırmaya devam ediyor." xml:space="preserve">
+    <value>Hospital Appointment System (HRS), which provides examination appointment services to all health institutions and organizations affiliated with the Ministry of Health, continues to renew and improve its service quality in the light of advanced technologies.</value>
+  </data>
+  <data name="Vatandaşlarımız, hrs.gov.tr adresinden HRS'nin sunduğu hizmetlerden yararlanabilmektedir" xml:space="preserve">
+    <value>Our citizens can benefit from the services offered by HRS at hrs.gov.tr</value>
+  </data>
+  <data name="İhtiyaçları önceliğimiz olan 65 yaş üstü, kanser hastası, kimsesiz, riskli gebe ve engelli vatandaşlarımız için HRS'de randevu önceliği uygulaması başlatıldı." xml:space="preserve">
+    <value>Appointment priority practice has been launched at HRS for our citizens over the age of 65, cancer patients, orphans, risky pregnant women and disabled citizens, whose needs are our priority.</value>
   </data>
 </root>

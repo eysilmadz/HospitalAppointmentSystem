@@ -126,6 +126,12 @@
   <data name="Ekle" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="Hangi Hastaneye eklenilecek :" xml:space="preserve">
+    <value>Which Hospital?</value>
+  </data>
+  <data name="Hastane Seçiniz" xml:space="preserve">
+    <value>Select Hospital</value>
+  </data>
   <data name="Poliklinik Adı" xml:space="preserve">
     <value>Policlinic Name</value>
   </data>

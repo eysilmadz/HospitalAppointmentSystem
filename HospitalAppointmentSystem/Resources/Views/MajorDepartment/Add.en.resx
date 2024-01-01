@@ -118,12 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Ana Bilim Dalı :" xml:space="preserve">
-    <value>Major Department :</value>
+    <value>Major Department</value>
   </data>
   <data name="Ana Bilim Dalı Ekle" xml:space="preserve">
     <value>Add Major Department</value>
   </data>
   <data name="Ekle" xml:space="preserve">
     <value>Add</value>
+  </data>
+  <data name="Hangi Hastaneye eklenilecek :" xml:space="preserve">
+    <value>Which Hospital ?</value>
+  </data>
+  <data name="Hastane Seçiniz" xml:space="preserve">
+    <value>Select Hospital</value>
   </data>
 </root>

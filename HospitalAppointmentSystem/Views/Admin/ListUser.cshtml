@@ -1,4 +1,6 @@
-﻿@model IEnumerable<AppUser>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model IEnumerable<AppUser>
 @{
     Layout = "_Dashboard";
 }
@@ -9,11 +11,11 @@
     <table class="table table-bordered" style="width: 95%">
         <thead>
             <tr>
-                <th>Kullanıcı Adı</th>
-                <th>Adı Soyadı</th>
-                <th>Email</th>
-                <th>Telefon Numarası</th>
-                <th>İşlemler</th>
+                <th>@Localizer["Kullanıcı Adı"]</th>
+                <th>@Localizer["Adı Soyadı"]</th>
+                <th>@Localizer["Email"]</th>
+                <th>@Localizer["Telefon Numarası"]</th>
+                <th>@Localizer["İşlemler"]</th>
             </tr>
         </thead>
         <tbody>
@@ -26,9 +28,9 @@
                     <td>@user.PhoneNumber</td>
                     <td>
                         <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-outline-primary btn-sm">Güncelle</a>
-                        <form asp-action="DeleteUser" method="post" onsubmit="return confirm('Kullanıcıyı silmek istediğinizden emin misiniz?')" style="display: inline-block;">
+                        <form asp-action="DeleteUser" method="post" onsubmit="return confirm('@Localizer["Kullanıcıyı silmek istediğinizden emin misiniz?"]')" style="display: inline-block;">
                             <input type="hidden" value="@user.Id" name="id" />
-                            <button type="submit" class="btn btn-outline-danger btn-sm">Sil</button>
+                            <button type="submit" class="btn btn-outline-danger btn-sm">@Localizer["Sil"]</button>
                         </form>
                     </td>
                 </tr>

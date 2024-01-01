@@ -1,4 +1,6 @@
-﻿@model List<AppRole>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model List<AppRole>
 @{
     Layout = "_Dashboard";
 }
@@ -8,7 +10,7 @@
     <table class="table table-bordered" style="width: 50%">
         <thead>
             <tr>
-                <th>Rol Adı</th>
+                <th>@Localizer["Rol Adı"]</th>
                 <th></th>
             </tr>
         </thead>
@@ -18,7 +20,7 @@
                 <tr>
                     <td>@role.Name</td>
                     <td>
-                        <a href="/Admin/DeleteRole/@role.Id" class="btn btn-danger">Sil</a>
+                        <a href="/Admin/DeleteRole/@role.Id" class="btn btn-danger">@Localizer["Sil"]</a>
                     </td>
                 </tr>
             }

@@ -117,19 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Ana Bilim Dalı :" xml:space="preserve">
-    <value>Ana Bilim Dalı :</value>
+  <data name="DUYURULAR" xml:space="preserve">
+    <value>DUYURULAR</value>
   </data>
-  <data name="Ana Bilim Dalı Ekle" xml:space="preserve">
-    <value>Ana Bilim Dalı Ekle</value>
+  <data name="En Hızlı Randevu" xml:space="preserve">
+    <value>En Hızlı Randevu</value>
   </data>
-  <data name="Ekle" xml:space="preserve">
-    <value>Ekle</value>
+  <data name="Hastane Randevu Sistemi" xml:space="preserve">
+    <value>Hastane Randevu Sistemi</value>
   </data>
-  <data name="Hangi Hastaneye eklenilecek :" xml:space="preserve">
-    <value>Hangi Hastaneye eklenilecek :</value>
+  <data name="KONUM" xml:space="preserve">
+    <value>KONUM</value>
   </data>
-  <data name="Hastane Seçiniz" xml:space="preserve">
-    <value>Hastane Seçiniz</value>
+  <data name="Sağlık Bakanlığına bağlı tüm sağlık kurum ve kuruluşlarına muayene randevu hizmeti sunan Hastane Randevu Sistemi (HRS), gelişmiş teknolojiler ışığında yenilenmeye ve hizmet kalitesini artırmaya devam ediyor." xml:space="preserve">
+    <value>Sağlık Bakanlığına bağlı tüm sağlık kurum ve kuruluşlarına muayene randevu hizmeti sunan Hastane Randevu Sistemi (HRS), gelişmiş teknolojiler ışığında yenilenmeye ve hizmet kalitesini artırmaya devam ediyor.</value>
+  </data>
+  <data name="Vatandaşlarımız, hrs.gov.tr adresinden HRS'nin sunduğu hizmetlerden yararlanabilmektedir" xml:space="preserve">
+    <value>Vatandaşlarımız, hrs.gov.tr adresinden HRS'nin sunduğu hizmetlerden yararlanabilmektedir</value>
+  </data>
+  <data name="İhtiyaçları önceliğimiz olan 65 yaş üstü, kanser hastası, kimsesiz, riskli gebe ve engelli vatandaşlarımız için HRS'de randevu önceliği uygulaması başlatıldı." xml:space="preserve">
+    <value>İhtiyaçları önceliğimiz olan 65 yaş üstü, kanser hastası, kimsesiz, riskli gebe ve engelli vatandaşlarımız için HRS'de randevu önceliği uygulaması başlatıldı.</value>
   </data>
 </root>

@@ -117,19 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Ana Bilim Dalı :" xml:space="preserve">
-    <value>Ana Bilim Dalı :</value>
+  <data name="Ad" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="Ana Bilim Dalı Ekle" xml:space="preserve">
-    <value>Ana Bilim Dalı Ekle</value>
+  <data name="Doğum Tarihiniz" xml:space="preserve">
+    <value>Birth Day</value>
   </data>
-  <data name="Ekle" xml:space="preserve">
-    <value>Ekle</value>
+  <data name="E-Mail" xml:space="preserve">
+    <value>E-Mail</value>
   </data>
-  <data name="Hangi Hastaneye eklenilecek :" xml:space="preserve">
-    <value>Hangi Hastaneye eklenilecek :</value>
+  <data name="Erkek" xml:space="preserve">
+    <value>Man</value>
   </data>
-  <data name="Hastane Seçiniz" xml:space="preserve">
-    <value>Hastane Seçiniz</value>
+  <data name="Kadın" xml:space="preserve">
+    <value>Woman</value>
+  </data>
+  <data name="Kaydet" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Rol Ata" xml:space="preserve">
+    <value>Add role</value>
+  </data>
+  <data name="Rol Seçiniz" xml:space="preserve">
+    <value>Choose Role</value>
+  </data>
+  <data name="Soyad" xml:space="preserve">
+    <value>SurName</value>
+  </data>
+  <data name="T.C Kimlik No" xml:space="preserve">
+    <value>T.C No</value>
+  </data>
+  <data name="Şifre" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Şifre(Tekrar)" xml:space="preserve">
+    <value>Password(Again)</value>
   </data>
 </root>

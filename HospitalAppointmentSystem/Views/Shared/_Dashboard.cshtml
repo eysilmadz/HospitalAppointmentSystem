@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
     Layout = null;
 }
 
@@ -26,24 +28,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" asp-controller="Hospital" asp-action="Index">Hastane İşlemleri</a>
+                    <a class="nav-link" aria-current="page" asp-controller="Hospital" asp-action="Index">@Localizer["Hastane İşlemleri"]</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" asp-controller="MajorDepartment" asp-action="Index">AnaBilimDalı İşlemleri</a>
+                    <a class="nav-link" aria-current="page" asp-controller="MajorDepartment" asp-action="Index">@Localizer["AnaBilimDalı İşlemleri"]</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" asp-controller="Policlinic" asp-action="Index">Poliklinik İşlemleri</a>
+                    <a class="nav-link" aria-current="page" asp-controller="Policlinic" asp-action="Index">@Localizer["Poliklinik İşlemleri"]</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" asp-controller="Doctor" asp-action="Index">Doktor İşlemleri</a>
+                    <a class="nav-link" aria-current="page" asp-controller="Doctor" asp-action="Index">@Localizer["Doktor İşlemleri"]</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Üye İşlemleri
+                            @Localizer["Üye İşlemleri"]
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" aria-current="page" asp-controller="Admin" asp-action="ListUser">Üye Listesi</a></li>
-                        <li><a class="dropdown-item" aria-current="page" asp-controller="Admin" asp-action="ListRol">Rol Listesi</a></li>
+                        <li><a class="dropdown-item" aria-current="page" asp-controller="Admin" asp-action="ListUser">@Localizer["Üye Listesi"]</a></li>
+                        <li><a class="dropdown-item" aria-current="page" asp-controller="Admin" asp-action="ListRol">@Localizer["Rol Listesi"]</a></li>
                     </ul>
                 </li>
             </ul>
@@ -53,18 +55,18 @@
                         <img src="~/images/language.png" width="24px" height="24px" />
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Türkçe</a></li>
-                        <li><a class="dropdown-item" href="#">English</a></li>
+                        <li><a class="dropdown-item" href="/?ui-culture=tr">Türkçe</a></li>
+                        <li><a class="dropdown-item" href="/?ui-culture=en">English</a></li>
                     </ul>
                 </div>
                     @if (User.Identity?.IsAuthenticated == true)
                     {
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Merhaba, @User.Identity.Name
+                                @Localizer["Merhaba"], @User.Identity.Name
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">Çıkış Yap</a></li>
+                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout">@Localizer["Çıkış Yap"]</a></li>
                         </ul>
                     </div>
                     }

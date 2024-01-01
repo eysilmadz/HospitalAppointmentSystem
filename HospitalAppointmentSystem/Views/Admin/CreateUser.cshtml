@@ -1,4 +1,6 @@
-﻿@model AdminCreateViewModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model AdminCreateViewModel
 @{
     Layout = "_Dashboard";
 }
@@ -9,19 +11,19 @@
         <div class="container form-box">
             <form asp-controller="Admin" asp-action="CreateUser" method="post" class="needs-validation">
                 <div class="form-group mb-2">
-                    <input type="text" class="form-control" asp-for="@Model.UserName" placeholder="Ad " required>
+                    <input type="text" class="form-control" asp-for="@Model.UserName" placeholder="@Localizer["Ad"] " required>
                     <span asp-validation-for="@Model.UserName" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-2">
-                    <input type="text" class="form-control" asp-for="@Model.UserSurname" placeholder="Soyad " required>
+                    <input type="text" class="form-control" asp-for="@Model.UserSurname" placeholder="@Localizer["Soyad"] " required>
                     <span asp-validation-for="@Model.UserSurname" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-2">
-                    <input type="text" class="form-control" asp-for="@Model.UserIdentityNo" placeholder="T.C Kimlik No " required>
+                    <input type="text" class="form-control" asp-for="@Model.UserIdentityNo" placeholder="@Localizer["T.C Kimlik No"] " required>
                     <span asp-validation-for="@Model.UserIdentityNo" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-2">
-                    <input type="email" class="form-control" asp-for="@Model.EmailAddress" placeholder="E-Mail " required>
+                    <input type="email" class="form-control" asp-for="@Model.EmailAddress" placeholder="@Localizer["E-Mail "]" required>
                     <span asp-validation-for="@Model.EmailAddress" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-2">
@@ -32,45 +34,45 @@
                     <div class="form-check mx-2">
                         <input class="form-check-input" type="radio" name="UserGender" id="flexRadioDefault1" value="Kadın" checked>
                         <label class="form-check-label" for="flexRadioDefault1">
-                            Kadın
+                            @Localizer["Kadın"]
                         </label>
                     </div>
                     <div class="form-check mx-4">
                         <input class="form-check-input" type="radio" name="UserGender" id="flexRadioDefault2" value="Erkek">
                         <label class="form-check-label" for="flexRadioDefault2">
-                            Erkek
+                            @Localizer["Erkek"]
                         </label>
                     </div>
                     <span asp-validation-for="@Model.UserGender" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-2">
-                    <input type="date" class="form-control" asp-for="@Model.UserBirthday" placeholder="Doğum Tarihiniz " required>
+                    <input type="date" class="form-control" asp-for="@Model.UserBirthday" placeholder="@Localizer["Doğum Tarihiniz"] " required>
                     <span asp-validation-for="@Model.UserBirthday" class="text-danger"></span>
                 </div>
 
                 <div class="form-group mb-2">
-                    <input type="password" class="form-control" asp-for="@Model.Password" placeholder="Şifre ">
+                    <input type="password" class="form-control" asp-for="@Model.Password" placeholder="@Localizer["Şifre"] ">
                     <span asp-validation-for="@Model.Password" class="text-danger"></span>
                 </div>
 
                 <div class="form-group mb-1">
-                    <input type="password" class="form-control" asp-for="@Model.ConfirmPassword" placeholder="Şifre(Tekrar) ">
+                    <input type="password" class="form-control" asp-for="@Model.ConfirmPassword" placeholder="@Localizer["Şifre(Tekrar)"] ">
                     <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="card mb-2">
                     <div class="card-header">
-                        Rol Ata
+                        @Localizer["Rol Ata"]
                     </div>
                     <div class="card-body">
                         <div class="form-floating mb-3">
                             <select class="form-select" asp-for="Role" asp-items="@Model.RolesList" aria-required="true">
-                                <option disabled selected>Rol Seçiniz</option>
+                                <option disabled selected>@Localizer["Rol Seçiniz"]</option>
                             </select>
                             <span asp-validation-for="Role" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
-                <button type="submit"  class="btn btn-primary">Kaydet</button>
+                <button type="submit" class="btn btn-primary">@Localizer["Kaydet"]</button>
 
             </form>
         </div>

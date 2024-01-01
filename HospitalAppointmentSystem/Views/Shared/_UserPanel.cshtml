@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
     Layout = null;
 }
 
@@ -24,29 +26,24 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" asp-controller="Account" asp-action="Apointment">Randevu Al</a>
-                </li>
-            </ul>
             <div class="ms-auto" style="display:flex;">
                 <div class="dropdown" style="margin-right: 10px;">
                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="~/images/language.png" width="24px" height="24px" />
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Türkçe</a></li>
-                        <li><a class="dropdown-item" href="#">English</a></li>
+                        <li><a class="dropdown-item" href="/?ui-culture=tr">Türkçe</a></li>
+                        <li><a class="dropdown-item" href="/?ui-culture=en">English</a></li>
                     </ul>
                 </div>
                     @if (User.Identity?.IsAuthenticated == true)
                     {
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Merhaba, @User.Identity.Name
+                            @Localizer["Merhaba"], @User.Identity.Name
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" asp-controller="Account" asp-action="LogoutUser">Çıkış Yap</a></li>
+                            <li><a class="dropdown-item" asp-controller="Account" asp-action="LogoutUser">@Localizer["Çıkış Yap"]</a></li>
                         </ul>
                     </div>
                     }
