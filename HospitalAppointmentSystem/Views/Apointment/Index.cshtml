@@ -3,29 +3,17 @@
 }
 
 @{
-    Layout = null;
+    Layout = "_UserPanel";
 }
 
 @model HospitalAppointmentSystem.Models.ViewModels.ApointmentViewModel
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HospitalAppointmentSystem</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/HospitalAppointmentSystem.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Apointment.css" />
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/Appointment.js" charset="windows-1254" type="text/javascript"></script>
-</head>
-<body>
-    <div class="apointment-box">
+
+<div class="cerceve">
+    <div class="apointment-box" style="margin-top: 48px; margin-left: 200px;">
         <h3><a asp-controller="User" asp-action="UserHomePage"><i class="bi bi-arrow-left"></i></a>Randevu Ara</h3>
         <form asp-controller="Apointment" asp-action="Apointment" method="post">
             <div class="mb-2">
@@ -64,11 +52,10 @@
                     <option value="NOSELECTED">Doktor Seçiniz</option>
                 </select>
             </div>
-            <div class="mb-1 button-group">
+            <div class="mb-1 button-group" style="margin-top: 40px;">
                 <button type="submit" class="btn btn-outline-secondary">Randevu Ara</button>
                 <button type="button" id="resetButton" class="btn btn-danger">Temizle</button>
             </div>
         </form>
     </div>
-</body>
-</html>
+</div>

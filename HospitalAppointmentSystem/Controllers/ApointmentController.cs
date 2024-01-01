@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HospitalAppointmentSystem.Controllers
 {
+    [Authorize(Roles = "Hasta")]
+
     public class ApointmentController : Controller
     {
         private readonly HospitalDbContext _context;

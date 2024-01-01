@@ -103,7 +103,7 @@ namespace HospitalAppointmentSystem.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("Apointment");
+                            return RedirectToAction("Index","Apointment");
                         }
                     }
                     else if (result.IsLockedOut)
@@ -124,12 +124,6 @@ namespace HospitalAppointmentSystem.Controllers
                 }
             }
             return View(model);
-        }
-
-        [Authorize(Roles ="Hasta")]
-        public IActionResult Apointment()
-        {
-            return View();
         }
 
         public async Task<IActionResult> Logout()

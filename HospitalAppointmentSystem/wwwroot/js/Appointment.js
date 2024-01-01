@@ -48,11 +48,11 @@ $(document).ready(function () {
     $("#select_major").change(function () {
         var selectedDistrictId = $("#select_district").val();
         var selectedMajorId = $("#select_major").val();
-        
+
 
         // ilçe ve klinik seçilmiþse hastane dropdown'ýný aktifleþtir
         if (selectedDistrictId !== "NOSELECTED" && selectedMajorId !== "NOSELECTED") {
-            
+
             $("#select_hospital").prop("disabled", false);
         } else {
             // ilçe veya klinik seçilmemiþse hastane dropdown'ýný devre dýþý býrak
@@ -101,7 +101,7 @@ $(document).ready(function () {
         });
     });
 
-    
+
     $("#select_clinic").change(function () {
         var selectedDoctorId = $(this).val();
 
@@ -124,5 +124,20 @@ $(document).ready(function () {
                 $("#select_doctor").append('<option value="' + item.value + '">' + item.text + '</option>');
             });
         });
+    });
+
+
+    //reset butonu
+    $("#resetButton").click(function () {
+        // Form içindeki tüm input, select ve textarea'larý temizle
+        $("form")[0].reset();
+
+        //dropdown'larý devre dýþý býrak
+        $("#select_district").prop("disabled", true);
+        $("#select_clinic").prop("disabled", true);
+        $("#select_major").prop("disabled", true);
+        $("#select_hospital").prop("disabled", true);
+        $("#select_doctor").prop("disabled", true);
+
     });
 });

@@ -1,13 +1,4 @@
-﻿body {
-    background: #ececec;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.apointment-box {
+﻿.apointment-box {
     width: 1200px;
     height: 500px;
     border-radius: 10px;
