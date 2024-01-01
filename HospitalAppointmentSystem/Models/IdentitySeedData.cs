@@ -7,7 +7,7 @@ namespace HospitalAppointmentSystem.Models
     public static class IdentitySeedData
     {
         private const string adminUser = "B211210081@sakarya.edu.tr";
-        private const string adminPassword = "Cucemoru14.";
+        private const string adminPassword = "sau";
 
         public static async void IdentityTestUser(IApplicationBuilder app)
         {
@@ -33,6 +33,31 @@ namespace HospitalAppointmentSystem.Models
                 };
 
                 await userManager.CreateAsync(user, adminPassword);
+                await userManager.AddToRoleAsync(user, "Admin");
+
+                user = new AppUser
+                {
+                    FullName = "Esma Yıldız",
+                    UserName = "Esma",
+                    Surname = "Yıldız",
+                    Email = "esma@hasta.com",
+                    PhoneNumber = "1112223333"
+                };
+
+                await userManager.CreateAsync(user, adminPassword);
+                await userManager.AddToRoleAsync(user, "Hasta");
+
+                user = new AppUser
+                {
+                    FullName = "Merve Şentürk",
+                    UserName = "Merve",
+                    Surname = "Şentürk",
+                    Email = "merve@doktor.com",
+                    PhoneNumber = "4445556666"
+                };
+
+                await userManager.CreateAsync(user, adminPassword);
+                await userManager.AddToRoleAsync(user, "Doktor");
             }
         }
     }

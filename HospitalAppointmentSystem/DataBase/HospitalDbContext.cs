@@ -8,6 +8,10 @@ namespace HospitalAppointmentSystem.DataBase
 {
     public class HospitalDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
+        public HospitalDbContext()
+        {
+        }
+
         public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options)
         {
 
@@ -20,6 +24,8 @@ namespace HospitalAppointmentSystem.DataBase
         public DbSet<Appointment> ?Appointments { get; set; }
         public DbSet<MajorDepartment> ?MajorDepartments { get; set; }
         public DbSet<Patient> ?Patients { get; set; }
+        public DbSet<HospitalPoliclinic>? HospitalPoliclinic { get; set; }
+        public DbSet<HospitalMajorDepartment>? HospitalMajorDepartment { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{

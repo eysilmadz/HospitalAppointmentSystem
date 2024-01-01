@@ -16,6 +16,10 @@ namespace HospitalAppointmentSystem.Models.Entities
         [MaxLength(50)]
         public string? DoctorSurname { get; set; }
 
+        public DateTime? WorkTime { get; set; }
+
+        public DateTime? WorkDate { get; set; }
+
         [ForeignKey("Hospital")]
         public int HospitalId { get; set; }
         public Hospital? Hospital { get; set; }
