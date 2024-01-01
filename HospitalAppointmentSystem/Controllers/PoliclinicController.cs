@@ -4,9 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using HospitalAppointmentSystem.Models.ViewModels;
 using HospitalAppointmentSystem.Models.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HospitalAppointmentSystem.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class PoliclinicController : Controller
     {
         private readonly HospitalDbContext _context;

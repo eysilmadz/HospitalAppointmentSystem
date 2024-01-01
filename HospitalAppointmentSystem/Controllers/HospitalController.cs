@@ -1,12 +1,15 @@
 ﻿using HospitalAppointmentSystem.DataBase;
 using HospitalAppointmentSystem.Models.Entities;
 using HospitalAppointmentSystem.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace HospitalAppointmentSystem.Controllers
 {
+    [Authorize(Roles="Admin")]
+
     public class HospitalController : Controller
     {
         private readonly HospitalDbContext _context;

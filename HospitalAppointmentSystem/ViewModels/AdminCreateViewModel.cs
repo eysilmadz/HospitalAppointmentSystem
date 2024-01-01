@@ -19,8 +19,7 @@ namespace HospitalAppointmentSystem.ViewModels
         [Required]
         public string? UserGender { get; set; } = string.Empty;
 
-        [Required]
-        [RegularExpression(@"^(\+[0-9]{1,3}[-\.\s]?)?(\([0-9]{1,5}\)[-.\s]?)?([0-9]{1,4}[-.\s]?){5,}$", ErrorMessage = "Geçerli bir telefon numarası giriniz.")]
+        [Required(ErrorMessage = "Geçerli bir telefon numarası giriniz.")]
         public string? PhoneNumber { get; set; } = string.Empty;
 
         [Required]

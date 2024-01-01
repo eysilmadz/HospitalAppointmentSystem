@@ -1,10 +1,13 @@
 ﻿using HospitalAppointmentSystem.DataBase;
 using HospitalAppointmentSystem.Models.Entities;
 using HospitalAppointmentSystem.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalAppointmentSystem.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class MajorDepartmentController : Controller
     {
         //MajorDepartment ekle-güncelle-sil-listele

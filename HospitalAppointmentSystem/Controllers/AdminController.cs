@@ -1,6 +1,7 @@
 ﻿using HospitalAppointmentSystem.DataBase;
 using HospitalAppointmentSystem.Models;
 using HospitalAppointmentSystem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HospitalAppointmentSystem.Controllers
 {
+    [Authorize(Roles ="Admin")]
+
     public class AdminController : Controller
     {
         private readonly RoleManager<AppRole> _roleManager;

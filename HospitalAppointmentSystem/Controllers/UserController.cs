@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HospitalAppointmentSystem.Controllers
 {
+    [AllowAnonymous]
 
     public class UserController : Controller
     {
@@ -34,6 +35,7 @@ namespace HospitalAppointmentSystem.Controllers
             {
                 AppUser user = new AppUser()
                 {
+                    FullName = p.UserMail,
                     IdentityNo = p.UserIdentityNo,
                     UserName = p.UserName,
                     Surname = p.UserSurname,

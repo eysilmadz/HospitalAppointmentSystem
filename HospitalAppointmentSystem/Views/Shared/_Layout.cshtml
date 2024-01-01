@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HospitalAppointmentSystem</title>
+    <title>@ViewData["Title"] AnaSayfa</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -42,7 +42,7 @@
     </div>
 
     <!--nav-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light custom_nav-container container-fluid" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom_nav-container container-fluid">
         <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="display: flex; flex-direction: row; align-items: center;">
             <img src="~/images/sagliklogo.png" alt="Logo" class="d-inline-block align-text-top" width="50%" height="50%">
             <div style="margin-left:3px; color: #45474B;">HRS</div>
@@ -65,16 +65,23 @@
                     <a class="nav-link" href="#haritalar">Haritalar</a>
                 </li>
             </ul>
-            @*@if (User.Identity.IsAuthenticated)
+            @if (User.IsInRole("Hasta"))
             {
-                <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+
+                    <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="Apointment">RANDEVU AL</a>
+
+                }
+                else
+                {
+                    <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
+                }
             }
             else
             {
-                 <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
-            }*@
-             <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
-
+                <a class="btn btn-outline-secondary" type="submit" asp-controller="Account" asp-action="UserLogin">RANDEVU AL</a>
+            }
             <div class="dropdown">
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="~/images/language.png" width="24px" height="24px" />
